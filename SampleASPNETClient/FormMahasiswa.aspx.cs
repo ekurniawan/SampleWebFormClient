@@ -23,21 +23,20 @@ namespace SampleASPNETClient
         }
 
         // The id parameter name should match the DataKeyNames value set on the control
-        public void gvMahasiswa_UpdateItem(string id)
+        public void gvMahasiswa_UpdateItem(string Nim)
         {
-            SampleASPNETClient.Models.Mahasiswa item = null;
-            // Load the item here, e.g. item = MyDataLayer.Find(id);
+            MahasiswaServices mhsServices = new MahasiswaServices();
+
+            Mahasiswa item = mhsServices.GetById(Nim);
             if (item == null)
             {
-                // The item wasn't found
-                ModelState.AddModelError("", String.Format("Item with id {0} was not found", id));
+                ModelState.AddModelError("", String.Format("Item with id {0} was not found", Nim));
                 return;
             }
             TryUpdateModel(item);
             if (ModelState.IsValid)
             {
-                // Save changes here, e.g. MyDataLayer.SaveChanges();
-
+                mhsServices.Put(Nim, item);
             }
         }
     }

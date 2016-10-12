@@ -55,11 +55,12 @@ namespace SampleASPNETClient.Services
 
         public Mahasiswa GetById(string id)
         {
-            RestRequest request = new RestRequest("api/Mahasiswa", Method.GET)
+            RestRequest request = new RestRequest(string.Format("api/Mahasiswa/{0}",id), Method.GET)
             {
                 RequestFormat = DataFormat.Json
             };
-            request.AddParameter("id", id, ParameterType.UrlSegment);
+
+            //request.AddParameter("id", id, ParameterType.UrlSegment);
 
             var response = _client.Execute<Mahasiswa>(request);
             if(response.StatusCode==System.Net.HttpStatusCode.OK)
@@ -74,13 +75,14 @@ namespace SampleASPNETClient.Services
 
         public void Put(string id,Mahasiswa mhs)
         {
-            RestRequest request = new RestRequest("api/Mahasiswa", Method.PUT)
+            RestRequest request = new RestRequest(string.Format("api/Mahasiswa/{0}",id), Method.PUT)
             {
                 RequestFormat = DataFormat.Json
             };
-            request.AddBody(mhs);
-            request.AddParameter("id", id, ParameterType.UrlSegment);
 
+            //request.AddParameter("id", id, ParameterType.UrlSegment);
+            request.AddBody(mhs);
+            
             var response = _client.Execute(request);
 
             if(response.StatusCode!=System.Net.HttpStatusCode.OK)
