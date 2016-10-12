@@ -23,7 +23,7 @@ namespace SampleASPNETClient
         }
 
         // The id parameter name should match the DataKeyNames value set on the control
-        public void gvMahasiswa_UpdateItem(int id)
+        public void gvMahasiswa_UpdateItem(string id)
         {
             SampleASPNETClient.Models.Mahasiswa item = null;
             // Load the item here, e.g. item = MyDataLayer.Find(id);

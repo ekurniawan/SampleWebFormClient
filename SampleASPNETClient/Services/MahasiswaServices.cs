@@ -53,6 +53,25 @@ namespace SampleASPNETClient.Services
             }
         }
 
+        public Mahasiswa GetById(string id)
+        {
+            RestRequest request = new RestRequest("api/Mahasiswa", Method.GET)
+            {
+                RequestFormat = DataFormat.Json
+            };
+            request.AddParameter("id", id, ParameterType.UrlSegment);
+
+            var response = _client.Execute<Mahasiswa>(request);
+            if(response.StatusCode==System.Net.HttpStatusCode.OK)
+            {
+                return response.Data;
+            }
+            else
+            {
+                throw new Exception(response.ErrorMessage);
+            }
+        }
+
         public void Put(string id,Mahasiswa mhs)
         {
             RestRequest request = new RestRequest("api/Mahasiswa", Method.PUT)
