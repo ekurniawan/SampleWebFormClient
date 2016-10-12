@@ -5,8 +5,9 @@
     <asp:HyperLink NavigateUrl="~/FormAddMahasiswa" Text="Add Mahasiswa" runat="server" /><br />
 
     <asp:GridView CssClass="table table-striped" runat="server" ID="gvMahasiswa"
-        ItemType="SampleASPNETClient.Models.Mahasiswa"
-        SelectMethod="gvMahasiswa_GetData"></asp:GridView>
+        ItemType="SampleASPNETClient.Models.Mahasiswa" DataKeyNames="Nim"
+        SelectMethod="gvMahasiswa_GetData"
+        UpdateMethod="gvMahasiswa_UpdateItem"></asp:GridView>
 
 
 </asp:Content>

@@ -52,5 +52,22 @@ namespace SampleASPNETClient.Services
                 throw new Exception(response.ErrorMessage);
             }
         }
+
+        public void Put(string id,Mahasiswa mhs)
+        {
+            RestRequest request = new RestRequest("api/Mahasiswa", Method.PUT)
+            {
+                RequestFormat = DataFormat.Json
+            };
+            request.AddBody(mhs);
+            request.AddParameter("id", id, ParameterType.UrlSegment);
+
+            var response = _client.Execute(request);
+
+            if(response.StatusCode!=System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception(response.ErrorMessage);
+            }
+        }
     }
 }
