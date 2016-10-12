@@ -34,7 +34,23 @@ namespace SampleASPNETClient.Services
             {
                 throw new Exception(response.ErrorMessage);
             }
+        }
 
+        public void Post(Mahasiswa mhs)
+        {
+            RestRequest request = new RestRequest("api/Mahasiswa", Method.POST)
+            {
+                RequestFormat = DataFormat.Json
+            };
+
+            request.AddBody(mhs);
+
+            var response = _client.Execute(request);
+
+            if(response.StatusCode!=System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception(response.ErrorMessage);
+            }
         }
     }
 }

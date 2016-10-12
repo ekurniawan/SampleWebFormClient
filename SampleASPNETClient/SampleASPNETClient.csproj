@@ -152,6 +152,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="FormAddMahasiswa.aspx" />
     <Content Include="FormMahasiswa.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -225,6 +226,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddMahasiswa.aspx.cs">
+      <DependentUpon>FormAddMahasiswa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormAddMahasiswa.aspx.designer.cs">
+      <DependentUpon>FormAddMahasiswa.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormMahasiswa.aspx.cs">
       <DependentUpon>FormMahasiswa.aspx</DependentUpon>
