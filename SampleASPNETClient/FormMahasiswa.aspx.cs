@@ -20,7 +20,14 @@ namespace SampleASPNETClient
         public IEnumerable<Mahasiswa> gvMahasiswa_GetData([Control("txtNama")] string nama)
         {
             MahasiswaServices mhsServices = new MahasiswaServices();
-            return mhsServices.GetAll();
+            if (nama!=null)
+            {
+                return mhsServices.GetByNama(nama);
+            }
+            else
+            {
+                return mhsServices.GetAll();
+            }
         }
 
         // The id parameter name should match the DataKeyNames value set on the control
