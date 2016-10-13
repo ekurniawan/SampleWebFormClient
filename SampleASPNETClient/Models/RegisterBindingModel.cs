@@ -8,7 +8,6 @@ namespace SampleASPNETClient.Models
 {
     public class RegisterBindingModel
     {
-
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -23,6 +22,5 @@ namespace SampleASPNETClient.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
     }
 }

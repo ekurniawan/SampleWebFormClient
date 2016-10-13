@@ -155,6 +155,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="FormAddMahasiswa.aspx" />
     <Content Include="FormMahasiswa.aspx" />
+    <Content Include="FormRegistrasi.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -241,6 +242,13 @@
     </Compile>
     <Compile Include="FormMahasiswa.aspx.designer.cs">
       <DependentUpon>FormMahasiswa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegistrasi.aspx.cs">
+      <DependentUpon>FormRegistrasi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormRegistrasi.aspx.designer.cs">
+      <DependentUpon>FormRegistrasi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
