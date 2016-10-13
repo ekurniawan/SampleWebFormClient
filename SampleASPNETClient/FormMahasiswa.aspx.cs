@@ -17,7 +17,7 @@ namespace SampleASPNETClient
         {
         }
       
-        public IEnumerable<Mahasiswa> gvMahasiswa_GetData()
+        public IEnumerable<Mahasiswa> gvMahasiswa_GetData([Control("txtNama")] string nama)
         {
             MahasiswaServices mhsServices = new MahasiswaServices();
             return mhsServices.GetAll();

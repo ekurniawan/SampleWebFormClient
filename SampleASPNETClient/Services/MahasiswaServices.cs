@@ -76,6 +76,28 @@ namespace SampleASPNETClient.Services
             }
         }
 
+
+        public IEnumerable<Mahasiswa> GetByNama(string nama)
+        {
+            RestRequest request = new RestRequest("api/Mahasiswa/GetByNama", Method.GET)
+            {
+                RequestFormat = DataFormat.Json
+            };
+
+            request.AddParameter("nama", nama, ParameterType.QueryString);
+
+            var response = _client.Execute<List<Mahasiswa>>(request);
+
+            if(response.StatusCode==System.Net.HttpStatusCode.OK)
+            {
+                return response.Data;
+            }
+            else
+            {
+                throw new Exception(response.ErrorMessage);
+            }
+        }
+
         public void Put(string id,Mahasiswa mhs)
         {
             //RestRequest request = new RestRequest(string.Format("api/Mahasiswa/{0}",id), Method.PUT)
