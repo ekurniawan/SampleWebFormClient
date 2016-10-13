@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 using SampleASPNETClient.Models;
 using SampleASPNETClient.Services;
+using System.Web.ModelBinding;
 
 namespace SampleASPNETClient
 {

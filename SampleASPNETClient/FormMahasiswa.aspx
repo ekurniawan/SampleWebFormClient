@@ -4,6 +4,10 @@
 
     <asp:ValidationSummary runat="server" ShowModelStateErrors="true" />
     <asp:HyperLink NavigateUrl="~/FormAddMahasiswa" Text="Add Mahasiswa" runat="server" /><br />
+    <asp:Label Text="Masukan Nama :" runat="server" />
+    <asp:TextBox runat="server" ID="txtNama" />
+    <asp:Button Text="Cari" ID="btnCari" CssClass="btn btn-success" runat="server" /><br />
+
     <asp:GridView CssClass="table table-striped" runat="server" ID="gvMahasiswa"
         AutoGenerateColumns="False" 
         ItemType="SampleASPNETClient.Models.Mahasiswa" DataKeyNames="Nim"
