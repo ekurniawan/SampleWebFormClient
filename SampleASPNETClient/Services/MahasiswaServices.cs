@@ -5,6 +5,7 @@ using System.Web;
 
 using RestSharp;
 using SampleASPNETClient.Models;
+using System.Threading.Tasks;
 
 namespace SampleASPNETClient.Services
 {
@@ -23,6 +24,8 @@ namespace SampleASPNETClient.Services
             {
                 RequestFormat = DataFormat.Json
             };
+
+
 
             var response = _client.Execute<List<Mahasiswa>>(request);
 
@@ -93,6 +96,23 @@ namespace SampleASPNETClient.Services
             if(response.StatusCode!=System.Net.HttpStatusCode.OK)
             {
                 throw new Exception(response.ErrorMessage);
+            }
+        }
+
+        public void Delete(string id)
+        {
+            RestRequest request = new RestRequest("api/Mahasiswa", Method.DELETE)
+            {
+                RequestFormat = DataFormat.Json
+            };
+
+            request.AddParameter("id", id, ParameterType.QueryString);
+
+            var response = _client.Execute(request);
+
+            if(response.StatusCode!=System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception("Data not found !");
             }
         }
     }
