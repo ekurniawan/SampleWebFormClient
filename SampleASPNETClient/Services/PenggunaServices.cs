@@ -17,6 +17,24 @@ namespace SampleASPNETClient.Services
             _client = new RestClient("http://localhost:52099/");
         }
 
+        public ProfilPengguna GetLogin(string username,string password)
+        {
+            RestRequest request = new RestRequest("Token", Method.POST)
+            {
+                RequestFormat = DataFormat.Json
+            };
+
+            request.AddHeader("Content-Type", 
+                "application/x-www-form-urlencoded;charset=UTF-8;");
+            request.AddParameter("grant_type", "password");
+            request.AddParameter("username", username);
+            request.AddParameter("password", password);
+
+            var response = _client.Execute<ProfilPengguna>(request);
+
+            return response.Data;
+        }
+
         public void Register(RegisterBindingModel model)
         {
             RestRequest request = new RestRequest("api/Account/Register", Method.POST)

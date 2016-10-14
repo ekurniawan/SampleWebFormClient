@@ -5,9 +5,11 @@
         <label for="Username">Username :</label><br />
         <asp:TextBox runat="server" ID="Username" /><br /><br />
         <label for="Password">Password :</label><br />
-        <asp:TextBox runat="server" ID="Password" /><br /><br />
+        <asp:TextBox runat="server" TextMode="Password" ID="Password" /><br /><br />
 
         <asp:Button Text="Submit" ID="btnSubmit" CssClass="btn btn-default" 
-            runat="server" /> 
+            runat="server" OnClick="btnSubmit_Click" /> 
     </fieldset>
+    <br />
+    <asp:Literal ID="ltError" runat="server" />
 </asp:Content>
