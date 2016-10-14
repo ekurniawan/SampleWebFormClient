@@ -141,6 +141,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="BerhasilLogin.aspx" />
+    <Content Include="BerhasilLoginCookie.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -225,6 +226,13 @@
     </Compile>
     <Compile Include="BerhasilLogin.aspx.designer.cs">
       <DependentUpon>BerhasilLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BerhasilLoginCookie.aspx.cs">
+      <DependentUpon>BerhasilLoginCookie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BerhasilLoginCookie.aspx.designer.cs">
+      <DependentUpon>BerhasilLoginCookie.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
