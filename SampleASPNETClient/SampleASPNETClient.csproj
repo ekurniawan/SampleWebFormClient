@@ -254,6 +254,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Mahasiswa.cs" />
+    <Compile Include="Models\ProfilPengguna.cs" />
     <Compile Include="Models\RegisterBindingModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MahasiswaServices.cs" />
