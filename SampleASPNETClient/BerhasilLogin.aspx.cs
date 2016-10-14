@@ -22,7 +22,6 @@ namespace SampleASPNETClient
                 ProfilPengguna profil = (ProfilPengguna)Session["ProfilPengguna"];
                 ltKeterangan.Text = "Token " + profil.access_token;
             }
-
         }
     }
 }

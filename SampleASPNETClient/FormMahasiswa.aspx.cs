@@ -15,18 +15,23 @@ namespace SampleASPNETClient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["ProfilPengguna"]==null)
+            {
+                Response.Redirect("~/FormLogin");
+            }
         }
       
         public IEnumerable<Mahasiswa> gvMahasiswa_GetData([Control("txtNama")] string nama)
         {
+            var profil = (ProfilPengguna)Session["ProfilPengguna"];
             MahasiswaServices mhsServices = new MahasiswaServices();
             if (nama!=null)
             {
-                return mhsServices.GetByNama(nama);
+                return mhsServices.GetByNama(nama,profil.access_token);
             }
             else
             {
-                return mhsServices.GetAll();
+                return mhsServices.GetAll(profil.access_token);
             }
         }
 

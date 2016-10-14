@@ -18,14 +18,14 @@ namespace SampleASPNETClient.Services
             _client = new RestClient("http://localhost:52099/");
         }
 
-        public IEnumerable<Mahasiswa> GetAll()
+        public IEnumerable<Mahasiswa> GetAll(string access_token)
         {
             RestRequest request = new RestRequest("api/Mahasiswa", Method.GET)
             {
                 RequestFormat = DataFormat.Json
             };
 
-
+            request.AddHeader("Authorization", string.Format("Bearer {0}", access_token));
 
             var response = _client.Execute<List<Mahasiswa>>(request);
 
@@ -77,12 +77,14 @@ namespace SampleASPNETClient.Services
         }
 
 
-        public IEnumerable<Mahasiswa> GetByNama(string nama)
+        public IEnumerable<Mahasiswa> GetByNama(string nama, string access_token)
         {
             RestRequest request = new RestRequest(string.Format("api/Mahasiswa/GetByNama/{0}", nama), Method.GET)
             {
                 RequestFormat = DataFormat.Json
             };
+
+            request.AddHeader("Authorization", string.Format("Bearer {0}", access_token));
 
             var response = _client.Execute<List<Mahasiswa>>(request);
 
