@@ -39,13 +39,14 @@ namespace SampleASPNETClient.Services
             }
         }
 
-        public void Post(Mahasiswa mhs)
+        public void Post(Mahasiswa mhs, string access_token)
         {
             RestRequest request = new RestRequest("api/Mahasiswa", Method.POST)
             {
                 RequestFormat = DataFormat.Json
             };
 
+            request.AddHeader("Authorization", string.Format("Bearer {0}", access_token));
             request.AddBody(mhs);
 
             var response = _client.Execute(request);
@@ -56,13 +57,14 @@ namespace SampleASPNETClient.Services
             }
         }
 
-        public Mahasiswa GetById(string id)
+        public Mahasiswa GetById(string id, string access_token)
         {
             RestRequest request = new RestRequest("api/Mahasiswa", Method.GET)
             {
                 RequestFormat = DataFormat.Json
             };
 
+            request.AddHeader("Authorization", string.Format("Bearer {0}", access_token));
             request.AddParameter("id", id, ParameterType.QueryString);
 
             var response = _client.Execute<Mahasiswa>(request);
@@ -92,7 +94,7 @@ namespace SampleASPNETClient.Services
             
         }
 
-        public void Put(string id,Mahasiswa mhs)
+        public void Put(string id,Mahasiswa mhs, string access_token)
         {
             //RestRequest request = new RestRequest(string.Format("api/Mahasiswa/{0}",id), Method.PUT)
             //{
@@ -104,6 +106,7 @@ namespace SampleASPNETClient.Services
                 RequestFormat = DataFormat.Json
             };
 
+            request.AddHeader("Authorization", string.Format("Bearer {0}", access_token));
             request.AddParameter("id", id,ParameterType.QueryString);
             request.AddBody(mhs);
             
@@ -115,13 +118,14 @@ namespace SampleASPNETClient.Services
             }
         }
 
-        public void Delete(string id)
+        public void Delete(string id, string access_token)
         {
             RestRequest request = new RestRequest("api/Mahasiswa", Method.DELETE)
             {
                 RequestFormat = DataFormat.Json
             };
 
+            request.AddHeader("Authorization", string.Format("Bearer {0}", access_token));
             request.AddParameter("id", id, ParameterType.QueryString);
 
             var response = _client.Execute(request);

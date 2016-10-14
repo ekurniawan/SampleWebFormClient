@@ -14,11 +14,16 @@ namespace SampleASPNETClient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["ProfilPengguna"]==null)
+            {
+                Response.Redirect("~/FormLogin");
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            var profil = (ProfilPengguna)Session["ProfilPengguna"];
+
             Mahasiswa newMhs = new Mahasiswa
             {
                 Nim = txtNim.Text,
@@ -30,7 +35,7 @@ namespace SampleASPNETClient
             MahasiswaServices mhsServices = new MahasiswaServices();
             try
             {
-                mhsServices.Post(newMhs);
+                mhsServices.Post(newMhs,profil.access_token);
                 Response.Redirect("~/FormMahasiswa");
             }
             catch (Exception ex)
